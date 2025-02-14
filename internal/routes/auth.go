@@ -7,7 +7,7 @@ import (
 	"testapi/internal/services"
 )
 
-func SetupRoutes(app *fiber.App) {
+func SetupAuthRoutes(app *fiber.App) {
 	routes := app.Group("/auth")
 
 	routes.Post("/login", middleware.ParseBodyWithValidation(loginHandler))

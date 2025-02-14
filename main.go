@@ -39,9 +39,13 @@ func main() {
 			return c.Redirect("/swagger/index.html")
 		})
 	}
-	// Register routes
-	routes.SetupRoutes(app)
+
+	routes.SetupAuthRoutes(app)
 
 	log.Println("🚀 Server running on http://localhost:80")
-	app.Listen(":80")
+	err := app.Listen(":80")
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }
